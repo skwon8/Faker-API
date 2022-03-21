@@ -37,10 +37,35 @@ class Company {
     }
 }
 
+class User_Company {
+    constructor() {
+        this.id = faker.datatype.uuid();
+        this.firstName = faker.name.firstName();
+        this.lastName = faker.name.lastName();
+        this.phoneNumber = faker.phone.phoneNumber();
+        this.email = faker.internet.email();
+        this.password = faker.internet.password();
+        this.id = faker.datatype.uuid();
+        this.name = faker.company.companyName();
+        this.address = faker.address.city();
+        this.street = faker.address.streetAddress;
+        this.city = faker.address.cityName();
+        this.state = faker.address.state();
+        this.zipCode = faker.address.zipCode();
+        this.country = faker.address.countryCode();
+    }
+}
+
 app.get("/api/company", (req, res) => {
     let fakeCompany = new Company();
 
     res.json({fakeCompany})
+})
+
+app.get("/api/user/company", (req, res) => {
+    let fakeUser_Company = new User_Company();
+
+    res.json({fakeUser_Company})
 })
 
 
